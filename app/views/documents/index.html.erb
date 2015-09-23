@@ -1,0 +1,12 @@
+<h1>Documents Dashboard</h1>
+
+<div class="actions">
+  <%= button_tag(id: 'new_doc_button') do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  New Document
+  <% end %>
+</div>
+
+<%= render 'document_table' %>
+<%= render 'document_form' %>
+
