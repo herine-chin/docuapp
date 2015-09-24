@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923011121) do
+ActiveRecord::Schema.define(version: 20150924012913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150923011121) do
   create_table "documents", force: true do |t|
     t.integer  "user_id"
     t.integer  "loan_amount"
-    t.decimal  "interest_rate"
+    t.integer  "interest_rate"
     t.integer  "down_payment"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

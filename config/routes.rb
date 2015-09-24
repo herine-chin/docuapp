@@ -5,9 +5,7 @@ Rails.application.routes.draw do
     collection do
       resources :documents, only: [:new]
     end
-    member do
-      resources :documents, except: [:new]
-    end
+    resources :documents, except: [:new]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
