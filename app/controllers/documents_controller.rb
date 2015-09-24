@@ -26,7 +26,7 @@ class DocumentsController < ApplicationController
 
   def generate_pdf_for doc
     pdf = PdfDocument.new(doc)
-    pdf.render_file "app/pdfs/document_#{doc.id}.pdf"
+    pdf.render_file "#{Rails.root}/app/pdfs/document_#{doc.id}.pdf"
   end
 
   def delete_pdf
