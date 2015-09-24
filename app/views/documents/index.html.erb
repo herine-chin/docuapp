@@ -1,0 +1,11 @@
+<h1>Documents Dashboard</h1>
+
+<div class="actions">
+  <%= link_to new_document_path, remote: true, class: 'btn btn-success' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Document
+  <% end %>
+</div>
+
+<%= render 'document_table' %>
+<%= render 'modal' %>

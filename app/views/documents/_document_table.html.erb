@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Loan Amount</th>
+    <th>Interest Rate</th>
+    <th>Down Payment</th>
+    <th>View</th>
+  </tr>
+    <% @documents.each do |document| %>
+      <%= render 'document_table_row', document: document %>
+    <% end %>
+</table>
