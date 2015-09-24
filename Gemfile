@@ -39,6 +39,11 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem 'prawn', '~> 1.2.1'
+gem 'prawn-table', '~> 0.1.0'
+gem 'aws-sdk-v1'
+gem 'aws-sdk'
+gem 'paperclip'
 
 group :test do
   gem 'capybara'
@@ -47,6 +52,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'pry-stack_explorer'
 end

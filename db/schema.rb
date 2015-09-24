@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924012913) do
+ActiveRecord::Schema.define(version: 20150924054254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,12 @@ ActiveRecord::Schema.define(version: 20150924012913) do
     t.integer  "loan_amount"
     t.integer  "interest_rate"
     t.integer  "down_payment"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
   end
 
   add_index "documents", ["user_id"], name: "index_documents_on_user_id", using: :btree
