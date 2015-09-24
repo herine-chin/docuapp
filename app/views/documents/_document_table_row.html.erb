@@ -3,4 +3,8 @@
   <td><%= document.loan_amount %></td>
   <td><%= document.down_payment %></td>
   <td><%= number_to_percentage(document.interest_rate, precision: 0) %></td>
+  <td><%= link_to document.pdf.url, target: '_blank', class: 'btn btn-default' do %>
+        View PDF
+      <% end %>
+  </td>
 </tr>
