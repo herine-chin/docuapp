@@ -14,8 +14,8 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.save
-      generate_pdf_for @document
-      @document.pdf = File.open("#{Rails.root}/app/pdfs/document_#{@document.id}.pdf")
+      generate_pdf
+      @document.pdf = File.open(pdf_path)
       @document.save
       delete_pdf
     else
@@ -24,13 +24,17 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def generate_pdf_for document
-    pdf = PdfDocument.new(document)
-    pdf.render_file "app/pdfs/document_#{document.id}.pdf"
+  def generate_pdf
+    pdf = PdfDocument.new(@document)
+    pdf.render_file pdf_path
   end
 
   def delete_pdf
-    File.delete("#{Rails.root}/app/pdfs/document_#{@document.id}.pdf")
+    File.delete(pdf_path)
+  end
+
+  def pdf_path
+    "#{Rails.root}/app/pdfs/document_#{@document.id}.pdf"
   end
 
   private
