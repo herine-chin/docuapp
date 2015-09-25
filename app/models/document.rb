@@ -8,7 +8,6 @@ class Document < ActiveRecord::Base
   validates :loan_amount, :down_payment, numericality: {  only_integer: true, greater_than_or_equal_to: 0 }
   validates :interest_rate, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
 
-  # attr_accessible :pdf
   has_attached_file :pdf,
                     :s3_protocol => "https",
                     :s3_host_name => "s3-us-west-1.amazonaws.com",
