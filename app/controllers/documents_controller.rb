@@ -14,23 +14,23 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.save
-      generate_pdf
+      generate_pdf_for @document
       @document.pdf = File.open("#{Rails.root}/app/pdfs/document_#{@document.id}.pdf")
       @document.save
-      delete_pdf
+      delete_pdf_for @document
     else
       @modal_title = "Add New Document"
       render :new
     end
   end
 
-  def generate_pdf
-    pdf = PdfDocument.new(@document)
-    pdf.render_file "#{Rails.root}/app/pdfs/document_#{@document.id}.pdf"
+  def generate_pdf_for document
+    pdf = PdfDocument.new(document)
+    pdf.render_file "#{Rails.root}/app/pdfs/document_#{document.id}.pdf"
   end
 
-  def delete_pdf
-    File.delete("#{Rails.root}/app/pdfs/document_#{@document.id}.pdf")
+  def delete_pdf_for document
+    File.delete("#{Rails.root}/app/pdfs/document_#{document.id}.pdf")
   end
 
   private
