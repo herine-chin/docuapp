@@ -46,6 +46,7 @@ gem 'aws-sdk'
 gem 'paperclip'
 
 group :test do
+  gem 'pdf-inspector', require: "pdf/inspector"
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
