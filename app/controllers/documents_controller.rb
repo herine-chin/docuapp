@@ -14,7 +14,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     if @document.save
-      generate_pdf
+      generate_pdf_for @document
       @document.pdf = File.open("#{Rails.root}/app/pdfs/document_#{@document.id}.pdf")
       @document.save
       delete_pdf
