@@ -10,7 +10,6 @@ describe PdfDocument do
     let(:pdf_content) {  PDF::Inspector::Text.analyze( pdf.render ) }
 
     it 'contains the loan amount' do
-      binding.pry
       expect(pdf_content.strings).to include('$12')
     end
 
