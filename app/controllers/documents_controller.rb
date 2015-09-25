@@ -26,7 +26,7 @@ class DocumentsController < ApplicationController
 
   def generate_pdf
     pdf = PdfDocument.new(@document)
-    pdf.render_file pdf_path
+    pdf.render_file self.pdf_path
   end
 
   def pdf_path
