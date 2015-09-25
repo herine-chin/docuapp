@@ -1,7 +1,8 @@
 class PdfDocument < Prawn::Document
 
-  def initialize(document)
+  def initialize document, view
     @document = document
+    @view = view
     super(top_margin: 50)
     title
     meta_data
@@ -35,11 +36,11 @@ class PdfDocument < Prawn::Document
   end
 
   def dollar_amount num
-    '$' + num.to_s
+    @view.number_to_currency(num, precision: 0)
   end
 
   def percent num
-    num.to_s + '%'
+    @view.number_to_percentage(num, precision: 2)
   end
 
   def copyright

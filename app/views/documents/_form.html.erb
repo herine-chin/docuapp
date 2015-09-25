@@ -4,7 +4,7 @@
     <%= f.label :loan_amount, class: 'col-sm-3 control-label' %>
     <div class='input-group col-sm-8'>
       <div class='input-group-addon'>$</div>
-      <%= f.text_field :loan_amount, type: 'number', class: 'form-control' %>
+      <%= f.text_field :loan_amount, type: 'number', min: 0, class: 'form-control' %>
     </div>
   </div>
 
@@ -12,14 +12,14 @@
     <%= f.label :down_payment, class: 'col-sm-3 control-label' %>
     <div class='input-group col-sm-8'>
       <div class='input-group-addon'>$</div>
-      <%= f.text_field :down_payment, type: 'number', class: 'form-control' %>
+      <%= f.text_field :down_payment, type: 'number', min: 0, class: 'form-control' %>
     </div>
   </div>
 
   <div class='form-group'>
     <%= f.label :interest_rate, class: 'col-sm-3 control-label' %>
     <div class='input-group col-sm-8'>
-      <%= f.text_field :interest_rate, type: 'number', class: 'form-control' %>
+      <%= f.text_field :interest_rate, type: 'number', step: '0.01', min: 0, max: 100, class: 'form-control' %>
       <div class='input-group-addon'>%</div>
     </div>
   </div>

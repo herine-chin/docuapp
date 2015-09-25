@@ -12,7 +12,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new(document_params)
+    @document = Document.new document_params
     if @document.save
       generate_pdf
       @document.pdf = File.open(pdf_path)
@@ -25,12 +25,12 @@ class DocumentsController < ApplicationController
   end
 
   def generate_pdf
-    pdf = PdfDocument.new(@document)
+    pdf = PdfDocument.new @document , view_context
     pdf.render_file pdf_path
   end
 
   def delete_pdf
-    File.delete(pdf_path)
+    File.delete pdf_path
   end
 
   def pdf_path
@@ -51,7 +51,7 @@ class DocumentsController < ApplicationController
     end
 
     if !document[:interest_rate].empty?
-      params[:document][:interest_rate] = document[:interest_rate].to_i
+      params[:document][:interest_rate] = document[:interest_rate].to_f
     end
 
     if !document[:down_payment].empty?
