@@ -1,10 +1,11 @@
 <tr>
   <td><%= document.id %></td>
-  <td><%= document.loan_amount %></td>
-  <td><%= document.down_payment %></td>
+  <td><%= number_to_currency(document.loan_amount, precision: 0) %></td>
+  <td><%= number_to_currency(document.down_payment,precision: 0) %></td>
   <td><%= number_to_percentage(document.interest_rate, precision: 0) %></td>
-  <td><%= link_to document.pdf.url, target: '_blank', class: 'btn btn-default' do %>
-        View PDF
+  <td><%= link_to document.pdf.url, target: '_blank', class: 'btn btn-info' do %>
+      <span class='glyphicon glyphicon-open-file'></span>
+        PDF
       <% end %>
   </td>
 </tr>

@@ -32,8 +32,10 @@
 
 <% end %>
 
-<% if @document.errors %>
-  <% @document.errors.full_messages.each do |error| %>
-    <p><%= error %></p>
-  <% end %>
+<% if @document.errors.size > 0 %>
+  <div class='alert alert-danger'>
+    <% @document.errors.full_messages.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  </div>
 <% end %>

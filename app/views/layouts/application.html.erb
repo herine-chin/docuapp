@@ -9,21 +9,28 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 </head>
 <body>
+  <div class='row bg-primary'>
+    <div class="container pad-top-15 pad-bottom-15">
 
-<div id='user_nav'>
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%=link_to 'Sign up', new_user_registration_path %> or <%= link_to 'log in', new_user_session_path %>
-  <% end %>
-</div>
+        <div class='pull-right' id='user_nav'>
+          <% if user_signed_in? %>
+              Signed in as <%= current_user.email %>.
+            <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: 'btn btn-default' %>
+          <% else %>
+            <%=link_to 'Sign up', new_user_registration_path, class: 'btn btn-default' %> or <%= link_to 'Log in', new_user_session_path, class: 'btn btn-default' %>
+          <% end %>
+        </div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => 'flash_#{name}' %>
-<% end %>
+    </div>
+  </div>
 
-<%= yield %>
+  <div class='container margin-top-15'>
+    <%= render 'layouts/messages' %>
+  </div>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>

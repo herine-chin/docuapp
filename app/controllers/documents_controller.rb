@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   before_filter :process_params , :only => [:create] # :edit
 
   def index
-    @documents = current_user.documents
+    @documents = current_user.documents.reverse
   end
 
   def new
